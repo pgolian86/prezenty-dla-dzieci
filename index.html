@@ -2,10 +2,125 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Prezenty dla dzieci</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomysły na prezenty dla dzieci</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .category {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .category-header {
+      background: #007bff;
+      color: white;
+      padding: 15px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .category-body {
+      display: none;
+      padding: 10px 20px;
+    }
+    .product {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 15px;
+    }
+    .product img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product-info {
+      flex: 1;
+    }
+    .product-price {
+      font-weight: bold;
+      color: #28a745;
+      margin-top: 5px;
+    }
+    .new-proposals {
+      margin-top: 40px;
+      padding: 20px;
+      background: #eef6ff;
+      border-radius: 10px;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      height: 350px;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Witaj! Strona się tworzy...</h1>
-  <p>Za chwilę wypełnimy ją treścią 🙂</p>
+  <div class="container">
+    <h1>Pomysły na prezenty dla dzieci</h1>
+
+    <!-- KSIĄŻKI -->
+    <div class="category">
+      <div class="category-header">📚 Książki</div>
+      <div class="category-body" id="books"></div>
+    </div>
+
+    <!-- GRY -->
+    <div class="category">
+      <div class="category-header">🎲 Gry</div>
+      <div class="category-body" id="games"></div>
+    </div>
+
+    <!-- INNE -->
+    <div class="category">
+      <div class="category-header">🎁 Inne</div>
+      <div class="category-body" id="other"></div>
+    </div>
+
+    <!-- NOWE PROPOZYCJE -->
+    <div class="new-proposals">
+      <h2>📝 Nowe propozycje od rodziców</h2>
+
+      <p>
+        Aby dodać swoją propozycję kliknij poniżej:<br><br>
+        <a href="LINK_DO_GOOGLE_FORMULARZA" 
+           target="_blank" 
+           style="padding:10px 20px; background:#007bff; color:white; border-radius:6px; text-decoration:none;">
+          ➕ Dodaj propozycję
+        </a>
+      </p>
+
+      <h3>Lista wszystkich nowych propozycji</h3>
+      <iframe src="LINK_DO_OPUBLIKOWANEGO_ARKUSZA"></iframe>
+    </div>
+  </div>
+
+  <script>
+    // prosty mechanizm rozwijania kategorii
+    document.querySelectorAll('.category-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const body = header.nextElementSibling;
+        body.style.display = body.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
 </body>
 </html>
